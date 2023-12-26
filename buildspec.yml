@@ -5,16 +5,17 @@ phases:
       python: 3.8
     commands:
       - echo "Installing dependencies..."
-      - pip install -r requirements.txt -t lib
+      - pip install -r requirements.txt -t lib # external libraries are saved to lib folder on root dir
   build:
     commands:
       - echo "Zipping deployment package..."
       - cd lib
-      - zip -r9 ../deployment_package.zip .
+      - zip -r9 ../deployment_package.zip .   # zip everything in lib folder and save it under root dir
       - cd ..
-      - zip -g deployment_package.zip lambda_function.py
+      - zip -g deployment_package.zip function/app.py  # add lambda function to zipped folder
   post_build:
     commands:
       - echo "Updating lambda Function..."
-      - aws lambda update-function-code --function-name github-to-lambda-demo --zip-file fileb://deployment_package.zip
+      - # use aws command to update function code with deployment_package.zip
+      - aws lambda update-function-code --function-name codebuild-practice-lambda --zip-file fileb://deployment_package.zip
       - echo "DONE!!"
