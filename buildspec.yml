@@ -11,8 +11,7 @@ phases:
       - sam validate --template ${CODEBUILD_SRC_DIR}/template.yaml
   build:
     commands:
-      - echo ${CODEBUILD_SRC_DIR}
-#      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
+      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
   post_build:
     commands:
       - sam package --output-template-file packaged.yaml --s3-bucket codebuild-practice9784
