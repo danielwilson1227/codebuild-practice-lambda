@@ -15,9 +15,10 @@ Resources:
       Handler: app.lambda_handler
       Runtime: python3.8
       Architectures:
+        -x86_64
       Events:
         HelloWorld:
-          Type:
+          Type: Api
           Properties:
             Path: /hello
             Method: get
