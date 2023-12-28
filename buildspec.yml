@@ -14,8 +14,7 @@ phases:
       - sam build
   post_build:
     commands:
-      - cd .aws-sam/build/
-      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket codebuild-practice9784 --debug
+      - sam package --template-file .aws-sam/build/template.yaml --output-template-file packaged.yaml --s3-bucket codebuild-practice9784 --debug
 #      - sam package --s3-bucket codebuild-practice9784   this isn't needed assuming we created a codebuild through the console and already designated an s3 bucket to push artifacts to.
 
 artifacts:
