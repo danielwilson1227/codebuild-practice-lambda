@@ -7,9 +7,9 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - sam validate --template ${CODEBUILD_SRC_DIR}/template.yaml
-      - pip install -r requirements.txt
   build:
     commands:
+      - pip install -r requirements.txt -t .
       - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
 #      - sam build        does the same thing as sam build --template assuming we created a codebuild through the console and console knows template.yaml is at root.
   post_build:
