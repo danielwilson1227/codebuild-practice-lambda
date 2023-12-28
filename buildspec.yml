@@ -3,12 +3,11 @@ phases:
   install:
     runtime-versions:
       python: 3.8
-    commands:
-      - echo "Installing dependencies..."
-#      - pip install -r requirements.txt -t lib # external libraries are saved to lib folder on root dir
   pre_build:
     commands:
+      - echo "Installing dependencies..."
       - sam validate --template ${CODEBUILD_SRC_DIR}/template.yaml
+      - pip install -r requirements.txt
   build:
     commands:
       - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
