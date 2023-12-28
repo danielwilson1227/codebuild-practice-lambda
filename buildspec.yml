@@ -12,7 +12,7 @@ phases:
   build:
     commands:
 #      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
-      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
+      - sam build
   post_build:
     commands:
       - sam package --output-template-file packaged.yaml --s3-bucket codebuild-practice9784
