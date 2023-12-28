@@ -9,12 +9,15 @@ phases:
       - sam validate --template ${CODEBUILD_SRC_DIR}/template.yaml
   build:
     commands:
-      - pip install -r requirements.txt -t .
-      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
-#      - sam build        does the same thing as sam build --template assuming we created a codebuild through the console and console knows template.yaml is at root.
+      - cd function
+      - pip install -r requirements.txt
+      - cd..
+#      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
+      - sam build
   post_build:
     commands:
-      - sam package --output-template-file packaged.yaml --s3-bucket codebuild-practice9784 --debug
+      - cd .aws-sam/build/
+      - sam package --template-file template.yaml --output-template-file packaged.yaml --s3-bucket codebuild-practice9784 --debug
 #      - sam package --s3-bucket codebuild-practice9784   this isn't needed assuming we created a codebuild through the console and already designated an s3 bucket to push artifacts to.
 
 artifacts:
