@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     if validationLayer.validateAcct(event['AcctNo']) == "Pass":
         print("Passed")
 
-    if testingLayer.testAcct(event['AcctNo']) == "Pass":
+    if testingLayer.testAcct(event['AcctNo']) == "Acct no is 10 characters":
         print("Passed")
 
 
