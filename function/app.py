@@ -1,5 +1,6 @@
 import pandas as pd
 from validation import account_validation as validationLayer
+from testing import account_testing as testingLayer
 
 def lambda_handler(event, context):
     d = {'col1': [1, 2], 'col2': [3, 4]}
@@ -8,6 +9,9 @@ def lambda_handler(event, context):
     print('Done x1.2')
 
     if validationLayer.validateAcct(event['AcctNo']) == "Pass":
+        print("Passed")
+
+    if testingLayer.testAcct(event['AcctNo']) == "Pass":
         print("Passed")
 
 
