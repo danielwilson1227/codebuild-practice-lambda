@@ -30,11 +30,9 @@ Resources:
       Description: My layer
       ContentUri: ./myLayer
       CompatibleRuntimes:
-        - python3.6
-        - python3.7
         - python3.8
-      LicenseInfo: MIT
-      RetentionPolicy: Retain
+    Metadata:
+      BuildMethod: makefile
 
 Outputs:
   HelloWorldFunction:
