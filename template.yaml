@@ -15,6 +15,8 @@ Resources:
       Handler: app.lambda_handler
       Runtime: python3.8
       FunctionName: Codebuild-practice-lambda
+      Layers:
+        - Ref: Layer
       Events:
         RandomQueue:
           Type: SQS
