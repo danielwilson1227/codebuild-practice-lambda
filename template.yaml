@@ -20,6 +20,19 @@ Resources:
           Type: SQS
           Properties:
             Queue: !Sub "arn:aws:sqs:${AWS::Region}:${AWS::AccountId}:StoreCheckoutQueue"
+  
+  Layer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: my-layer
+      Description: My layer
+      ContentUri: ./myLayer
+      CompatibleRuntimes:
+        - python3.6
+        - python3.7
+        - python3.8
+      LicenseInfo: MIT
+      RetentionPolicy: Retain
 
 Outputs:
   HelloWorldFunction:
