@@ -6,7 +6,7 @@ phases:
   pre_build:
     commands:
       - echo "Installing dependencies..."
-      - sam validate --template ./template.yaml
+      - sam validate --template myLayer/template.yaml
   build:
     commands:
       - pip install -r ../function/requirements.txt
