@@ -11,7 +11,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: function/
+      CodeUri: ../function/app.py
       Handler: app.lambda_handler
       Runtime: python3.8
       FunctionName: Codebuild-practice-lambda
@@ -28,7 +28,7 @@ Resources:
     Properties:
       LayerName: my-layer
       Description: My layer
-      ContentUri: ./myLayer
+      ContentUri: ./
       CompatibleRuntimes:
         - python3.8
     Metadata:
