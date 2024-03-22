@@ -11,7 +11,7 @@ phases:
     commands:
       # - pip install -r ../function/requirements.txt
 #      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
-      - sam build  # sam build will always build the template.yaml file
+      - sam build --template myLayer/template.yaml # sam build will always build the template.yaml file
   post_build:
     commands:
 # dont cd into .aws-sam/build folder as when we create the output file with --output-template-file, it will create that file in the current folder we are in. Rather specify path to template file we want to package.
