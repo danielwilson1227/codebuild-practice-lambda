@@ -9,7 +9,7 @@ phases:
       - sam validate --template myLayer/template.yaml
   build:
     commands:
-      - pip install -r ../function/requirements.txt
+      # - pip install -r ../function/requirements.txt
 #      - sam build --template ${CODEBUILD_SRC_DIR}/template.yaml
       - sam build  # sam build will always build the template.yaml file
   post_build:
